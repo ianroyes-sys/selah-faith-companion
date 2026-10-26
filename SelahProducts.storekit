@@ -1,0 +1,94 @@
+{
+  "identifier" : "B44C5A10-1111-4A2B-9C3D-selahstorekit",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "",
+    "_developerTeamID" : "",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21504981",
+      "localizations" : [
+
+      ],
+      "name" : "Selah+",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "B44C5A10-0001-4A2B-9C3D-000000000001",
+          "introductoryOffer" : {
+            "internalID" : "B44C5A10-0002-4A2B-9C3D-000000000002",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P2W"
+          },
+          "localizations" : [
+            {
+              "description" : "Unlimited Selah, billed monthly",
+              "displayName" : "Selah+ Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "selah.plus.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Selah+ Monthly",
+          "subscriptionGroupID" : "21504981",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "59.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "B44C5A10-0003-4A2B-9C3D-000000000003",
+          "introductoryOffer" : {
+            "internalID" : "B44C5A10-0004-4A2B-9C3D-000000000004",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P2W"
+          },
+          "localizations" : [
+            {
+              "description" : "Unlimited Selah, billed yearly",
+              "displayName" : "Selah+ Yearly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "selah.plus.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Selah+ Yearly",
+          "subscriptionGroupID" : "21504981",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

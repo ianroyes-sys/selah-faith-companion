@@ -1,0 +1,4 @@
+// Shared build settings. Real values live in the git-ignored Secrets.xcconfig.
+SELAH_SUPABASE_HOST =
+SELAH_SUPABASE_ANON_KEY =
+#include? "Secrets.xcconfig"

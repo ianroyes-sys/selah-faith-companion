@@ -1,0 +1,575 @@
+<title>Selah Brand Book</title>
+<style>
+  :root {
+    --cream: #F7F2EA;
+    --sand: #D9C6AC;
+    --taupe: #B49B7F;
+    --mocha: #7A5C43;
+    --espresso: #33241A;
+    --bronze: #B08347;
+    --night: #2C1F16;
+    --blush: #E8D5C0;
+    --sage: #8A9080;
+
+    --bg: var(--cream);
+    --ink: var(--espresso);
+    --ink-soft: #5C4633;
+    --ink-faint: #8A745C;
+    --surface: #FFFFFF;
+    --surface-line: rgba(51,36,26,.10);
+    --hero-bg: linear-gradient(175deg, #402F22 0%, #2C1F16 100%);
+    --card-shadow: 0 10px 30px rgba(51,36,26,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #2A1D13;
+      --ink: #F3EBDF;
+      --ink-soft: #D9C6AC;
+      --ink-faint: #B49B7F;
+      --surface: rgba(255,255,255,.05);
+      --surface-line: rgba(255,255,255,.10);
+      --card-shadow: none;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #2A1D13;
+    --ink: #F3EBDF;
+    --ink-soft: #D9C6AC;
+    --ink-faint: #B49B7F;
+    --surface: rgba(255,255,255,.05);
+    --surface-line: rgba(255,255,255,.10);
+    --card-shadow: none;
+  }
+  :root[data-theme="light"] {
+    --bg: #F7F2EA;
+    --ink: #33241A;
+    --ink-soft: #5C4633;
+    --ink-faint: #8A745C;
+    --surface: #FFFFFF;
+    --surface-line: rgba(51,36,26,.10);
+    --card-shadow: 0 10px 30px rgba(51,36,26,.07);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: Georgia, "Times New Roman", serif; }
+
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+  .prose { max-width: 66ch; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--hero-bg);
+    color: var(--cream);
+    padding: 84px 0 92px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; right: -180px; top: -180px;
+    width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(176,131,71,.30), transparent 72%);
+    pointer-events: none;
+  }
+  .hero .wrap { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; position: relative; }
+  .hero-icon {
+    width: 132px; height: 132px; border-radius: 30px; flex: none;
+    background: radial-gradient(130% 100% at 50% -12%, #4A3524 0%, #3A2A1E 44%, #241710 100%);
+    position: relative; overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0,0,0,.35);
+  }
+  .hero-icon .arch {
+    position: absolute; left: 50%; top: 22px; transform: translateX(-50%);
+    width: 78px; height: 98px;
+    border: 1px solid rgba(216,201,180,.18); border-bottom: none;
+    border-radius: 40px 40px 0 0;
+  }
+  .hero-icon .s {
+    position: absolute; left: 50%; top: 44%; transform: translate(-50%,-50%);
+    font-family: Georgia, serif; font-size: 76px; line-height: 1;
+    background: linear-gradient(180deg, #F7F2EA 10%, #E9D9BD 48%, #C99F63 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-icon .dot {
+    position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #C99F63; box-shadow: 0 0 14px rgba(201,159,99,.8);
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .32em; text-transform: uppercase;
+    color: var(--bronze); font-weight: 600;
+  }
+  .hero h1 {
+    font-family: Georgia, serif; font-weight: 500;
+    font-size: clamp(40px, 7vw, 62px); line-height: 1.05;
+    margin: 14px 0 12px; text-wrap: balance;
+  }
+  .hero p { color: rgba(217,198,172,.9); max-width: 46ch; margin: 0; }
+  .hero .meta { margin-top: 22px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(217,198,172,.55); }
+
+  /* ---------- Chapters ---------- */
+  .chapter { padding: 72px 0 8px; }
+  .chapter-head { display: flex; align-items: baseline; gap: 18px; border-top: 1px solid var(--surface-line); padding-top: 26px; }
+  .chapter-num { font-family: Georgia, serif; font-size: 15px; color: var(--bronze); letter-spacing: .1em; flex: none; }
+  .chapter h2 {
+    font-family: Georgia, serif; font-weight: 500;
+    font-size: clamp(26px, 4vw, 34px); margin: 0 0 6px; text-wrap: balance;
+  }
+  .chapter h3 {
+    font-family: Georgia, serif; font-weight: 500; font-size: 20px;
+    margin: 40px 0 10px;
+  }
+  .chapter p, .chapter li { color: var(--ink-soft); font-size: 15.5px; }
+  .chapter p strong, .chapter li strong { color: var(--ink); }
+  .lede { font-size: 17px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    border-radius: 22px;
+    padding: 24px 26px;
+    box-shadow: var(--card-shadow);
+  }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 20px 0; }
+
+  .label { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--bronze); font-weight: 600; margin-bottom: 10px; }
+
+  /* ---------- Logo section ---------- */
+  .logo-stage { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 22px 0; }
+  .stage {
+    border-radius: 22px; min-height: 190px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--surface-line);
+    position: relative;
+  }
+  .stage .cap {
+    position: absolute; bottom: 12px; left: 0; right: 0; text-align: center;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  }
+  .stage-light { background: #F7F2EA; }
+  .stage-light .cap { color: #8A745C; }
+  .stage-dark { background: linear-gradient(175deg, #402F22, #2C1F16); }
+  .stage-dark .cap { color: rgba(217,198,172,.6); }
+  .wm { font-family: Georgia, serif; font-size: 52px; letter-spacing: .01em; line-height: 1; }
+  .wm .pd { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: var(--bronze); margin-left: 8px; }
+  .wm-dark { color: #33241A; }
+  .wm-light { color: #F7F2EA; }
+
+  ul.rules { padding-left: 20px; margin: 10px 0; }
+  ul.rules li { margin: 7px 0; }
+
+  /* ---------- Color swatches (arch cards — the app's plan-card motif) ---------- */
+  .swatches {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+    gap: 14px; margin: 24px 0 8px;
+  }
+  .swatch { text-align: center; }
+  .swatch .chip {
+    height: 150px; border-radius: 64px 64px 18px 18px;
+    border: 1px solid var(--surface-line);
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 12px;
+  }
+  .swatch .chip span {
+    font-size: 10px; letter-spacing: .14em; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .swatch .name { font-size: 13px; font-weight: 600; margin-top: 9px; color: var(--ink); }
+  .swatch .role { font-size: 11.5px; color: var(--ink-faint); line-height: 1.45; }
+
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;
+  }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--surface-line); vertical-align: top; color: var(--ink-soft); }
+  th { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--bronze); font-weight: 600; }
+  td strong { color: var(--ink); }
+  .table-scroll { overflow-x: auto; }
+
+  /* ---------- Type specimen ---------- */
+  .specimen { display: grid; gap: 0; margin: 20px 0; }
+  .spec-row { display: flex; align-items: baseline; gap: 22px; padding: 18px 0; border-bottom: 1px solid var(--surface-line); flex-wrap: wrap; }
+  .spec-meta { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); width: 170px; flex: none; }
+  .spec-sample { margin: 0; color: var(--ink); }
+
+  /* ---------- Voice ---------- */
+  .voice-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 20px 0; }
+  .say { border-left: 3px solid var(--bronze); }
+  .avoid { border-left: 3px solid #A9553F; }
+  .voice-pair .card p { margin: 6px 0; font-size: 14.5px; }
+  .qmark { font-family: Georgia, serif; font-style: italic; }
+
+  /* ---------- Pillars ---------- */
+  .pillar { margin: 18px 0; }
+  .pillar .card p { margin: 8px 0; }
+  .adline {
+    font-family: Georgia, serif; font-size: 18px; color: var(--ink);
+    border-left: 2px solid var(--bronze); padding-left: 14px; margin: 12px 0;
+  }
+
+  .kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12.5px; background: var(--surface); border: 1px solid var(--surface-line);
+    border-radius: 6px; padding: 2px 7px; white-space: nowrap;
+  }
+
+  footer { padding: 60px 0 80px; border-top: 1px solid var(--surface-line); margin-top: 72px; }
+  footer p { color: var(--ink-faint); font-size: 13px; }
+  a { color: var(--bronze); }
+
+  @media (max-width: 560px) {
+    .hero { padding: 60px 0 68px; }
+    .spec-meta { width: 100%; }
+  }
+</style>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-icon" aria-hidden="true">
+      <div class="arch"></div>
+      <div class="s">S</div>
+      <div class="dot"></div>
+    </div>
+    <div>
+      <div class="eyebrow">Brand Book · V1</div>
+      <h1>Selah</h1>
+      <p>Faith, at your pace. A quiet space to pray, reflect, and grow — and the identity system for everything we put into the world.</p>
+      <div class="meta">July 2026 · com.selah.companion</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ================= 01 THE BRAND ================= -->
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">01</span><div>
+      <h2>The brand</h2>
+    </div></div>
+    <div class="prose">
+      <p class="lede"><em class="serif">Selah</em> is the Hebrew word that appears 74 times in the Psalms. Scholars believe it means <strong>pause — stop and listen</strong>. That is the entire brand in one word: in a feed-driven world engineered to never let you stop, Selah is the app that asks you to.</p>
+
+      <h3>Mission</h3>
+      <p>Give young Christians a private, unhurried place to meet God every day — one that treats their inner life as sacred, not as data.</p>
+
+      <h3>Who it's for</h3>
+      <p><strong>Core:</strong> Christian women 18–26 — college, first jobs, situationships, group chats, anxiety at 1am. They love God and are tired of performing. <strong>Broader:</strong> young adults 18–28 who want a faith habit that feels like a journal, not a megachurch.</p>
+
+      <h3>Positioning</h3>
+      <p>For young believers who feel watched everywhere else, Selah is the faith companion that <strong>stays between you and God</strong> — journal, prayers, and AI run on your phone, community is anonymous, and nothing is ever sold.</p>
+
+      <h3>The one-liner</h3>
+      <p class="adline">"A quiet space to pray, reflect, and grow — where your prayers never leave your phone."</p>
+
+      <h3>How we differ</h3>
+      <div class="table-scroll"><table>
+        <tr><th>Them (Bible Chat, Hallow, Glorify)</th><th>Selah</th></tr>
+        <tr><td>Cloud AI — your prayers go to a server</td><td><strong>On-device AI</strong> — nothing leaves the phone</td></tr>
+        <tr><td>Accounts, emails, funnels</td><td><strong>No account, no email</strong> — anonymous by design</td></tr>
+        <tr><td>Loud, gamified, notification-heavy</td><td><strong>Quiet luxury</strong> — one gentle nudge, warm restraint</td></tr>
+        <tr><td>Content libraries</td><td><strong>Personalization</strong> — liturgies written over your actual day</td></tr>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ================= 02 LOGO ================= -->
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">02</span><div>
+      <h2>Logo</h2>
+    </div></div>
+    <div class="prose">
+      <p class="lede">The mark is three ideas stacked: a faint <strong>arch</strong> (sanctuary, doorway), a serif <strong>S</strong> lit from below like dawn, and a small bronze <strong>dot</strong> — the pause itself. In the wordmark, the dot becomes a period: <em class="serif">Selah.</em> Full stop. Rest here.</p>
+    </div>
+
+    <div class="logo-stage">
+      <div class="stage stage-dark">
+        <div class="wm wm-light">Selah<span class="pd"></span></div>
+        <div class="cap">Cream wordmark · dark grounds</div>
+      </div>
+      <div class="stage stage-light">
+        <div class="wm wm-dark">Selah<span class="pd"></span></div>
+        <div class="cap">Espresso wordmark · light grounds</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="label">Rules</div>
+        <ul class="rules">
+          <li><strong>Clearspace:</strong> keep a margin equal to the height of the pause dot × 4 on all sides.</li>
+          <li><strong>Minimum size:</strong> wordmark 90px wide on screen; icon never below 24px.</li>
+          <li>The dot is always <strong>bronze #B08347</strong> — in both colorways.</li>
+          <li>Wordmark face is a classic serif (Georgia / New York). Never a sans, never a script.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="label">Never</div>
+        <ul class="rules">
+          <li>Don't stretch, outline, rotate, or add drop shadows.</li>
+          <li>Don't recolor the S — cream/espresso only.</li>
+          <li>Don't set the wordmark over busy photos without a scrim of espresso at 60%+.</li>
+          <li>Don't pair with emoji or add a cross to the mark — restraint <em>is</em> the brand.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <div class="label">Files · SelahApp/BrandKit/</div>
+      <p style="margin: 6px 0; font-size: 14px;"><span class="kbd">app-icon-1024.png</span> App Store &amp; avatars · <span class="kbd">wordmark-espresso.png</span> light grounds · <span class="kbd">wordmark-cream.png</span> dark grounds · <span class="kbd">banner-1500x500.png</span> social headers</p>
+    </div>
+  </section>
+
+  <!-- ================= 03 COLOR ================= -->
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">03</span><div>
+      <h2>Color</h2>
+    </div></div>
+    <div class="prose">
+      <p class="lede">The palette is a chapel at golden hour: cream plaster, wooden pews, one brushed-bronze fixture. Warmth without noise. These are the exact tokens from the app — use them verbatim in every ad.</p>
+    </div>
+
+    <div class="swatches">
+      <div class="swatch">
+        <div class="chip" style="background:#F7F2EA;"><span style="color:#8A745C;">F7F2EA</span></div>
+        <div class="name">Cream</div><div class="role">Primary ground (light)</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#33241A;"><span style="color:#D9C6AC;">33241A</span></div>
+        <div class="name">Espresso</div><div class="role">Ink · dark ground</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#B08347;"><span style="color:#F7F2EA;">B08347</span></div>
+        <div class="name">Bronze</div><div class="role">The accent. Use sparingly</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#D9C6AC;"><span style="color:#5C4633;">D9C6AC</span></div>
+        <div class="name">Sand</div><div class="role">Soft fills · secondary text on dark</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#7A5C43;"><span style="color:#F7F2EA;">7A5C43</span></div>
+        <div class="name">Mocha</div><div class="role">Secondary text on light</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#B49B7F;"><span style="color:#33241A;">B49B7F</span></div>
+        <div class="name">Tan Linen</div><div class="role">Module fill (dark mode)</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#E8D5C0;"><span style="color:#7A5C43;">E8D5C0</span></div>
+        <div class="name">Blush</div><div class="role">Warm highlight</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#2C1F16;"><span style="color:#B49B7F;">2C1F16</span></div>
+        <div class="name">Night Brown</div><div class="role">Hero / dusk surfaces</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#8A9080;"><span style="color:#F7F2EA;">8A9080</span></div>
+        <div class="name">Sage</div><div class="role">Quiet secondary accent</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="label">Proportions</div>
+        <p style="margin:6px 0;"><strong>60%</strong> field (cream, or espresso→night gradient) · <strong>30%</strong> warm neutrals (sand, mocha, linen) · <strong>10%</strong> bronze. Bronze is jewelry, never wallpaper — one glowing element per composition.</p>
+      </div>
+      <div class="card">
+        <div class="label">Contrast</div>
+        <p style="margin:6px 0;">Espresso on cream passes AAA — default body pairing. Cream on espresso/night for dark pieces. Bronze on cream is <strong>large text and icons only</strong>; on espresso it shines at any size.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 TYPOGRAPHY ================= -->
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">04</span><div>
+      <h2>Typography</h2>
+    </div></div>
+    <div class="prose">
+      <p class="lede">Two voices: an editorial <strong>serif</strong> that speaks (headlines, scripture, the wordmark) and a calm <strong>sans</strong> that serves (body, labels, UI). The serif is the sermon; the sans is the pew.</p>
+      <p>In-app these are Apple's <strong>New York</strong> and <strong>SF Pro</strong>. Outside the app — ads, web, Canva — use <strong>Georgia</strong> (or Playfair Display / Lora if you want more contrast) with <strong>Inter</strong> for body.</p>
+    </div>
+
+    <div class="specimen">
+      <div class="spec-row">
+        <div class="spec-meta">Display · serif medium</div>
+        <p class="spec-sample serif" style="font-size:34px; line-height:1.15;">Faith, at your pace</p>
+      </div>
+      <div class="spec-row">
+        <div class="spec-meta">Editorial caps · +6% tracking</div>
+        <p class="spec-sample" style="font-size:13px; letter-spacing:.3em; text-transform:uppercase; font-weight:600; color:var(--bronze);">The Privacy Promise</p>
+      </div>
+      <div class="spec-row">
+        <div class="spec-meta">Scripture · serif regular</div>
+        <p class="spec-sample serif" style="font-size:19px; font-style:italic;">"Be still, and know that I am God." — Psalm 46:10</p>
+      </div>
+      <div class="spec-row">
+        <div class="spec-meta">Body · sans medium</div>
+        <p class="spec-sample" style="font-size:15px; color:var(--ink-soft);">A prayer written over your actual day. One quiet minute.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Setting rules</div>
+      <ul class="rules">
+        <li>Headlines in sentence case, never all-caps — caps are reserved for small eyebrow labels with wide tracking.</li>
+        <li>No exclamation points. The brand never shouts; it invites.</li>
+        <li>Scripture is always attributed, always in the serif, often italic.</li>
+        <li>Generous line-height (1.6–1.8 body) and whitespace — crowded layouts break the "pause" promise.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 05 VOICE ================= -->
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">05</span><div>
+      <h2>Voice</h2>
+    </div></div>
+    <div class="prose">
+      <p class="lede">Selah sounds like the wisest friend you have — the one who listens all the way to the end, quotes scripture only when it actually fits, and never makes you feel behind. <strong>Quiet, warm, honest. Never preachy, never guilt, never hype.</strong></p>
+    </div>
+
+    <div class="voice-pair">
+      <div class="card say">
+        <div class="label">We say</div>
+        <p class="qmark">"Put the day down before you put your head down."</p>
+        <p class="qmark">"You said your heart feels anxious today. God is not put off by that."</p>
+        <p class="qmark">"Someone prayed over what you shared."</p>
+        <p class="qmark">"One quiet minute keeps it alive. Come home."</p>
+      </div>
+      <div class="card avoid">
+        <div class="label">We never say</div>
+        <p>"Unlock your BEST spiritual life!! 🔥🙏"</p>
+        <p>"Don't lose your streak!!" (we say it once, gently)</p>
+        <p>"Crush your quiet time goals."</p>
+        <p>Guilt of any kind — "You've been away…" framed as failure.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Mechanics</div>
+      <ul class="rules">
+        <li>Second person, present tense. Short sentences. Periods, not exclamation points.</li>
+        <li>No emojis in product or brand copy. In social captions, at most one, and only if it earns its place.</li>
+        <li>Name real life: exams, group chats, situationships, the 1am scroll — not abstract "spiritual journeys."</li>
+        <li>God is spoken of with reverence and familiarity at once — "He has not forgotten. Neither should you stop asking."</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 06 MESSAGING ================= -->
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">06</span><div>
+      <h2>Taglines &amp; messaging pillars</h2>
+    </div></div>
+    <div class="prose">
+      <p class="lede"><strong>Primary tagline: "Faith, at your pace."</strong> Alternates for specific placements: <em class="serif">"Selah means pause."</em> · <em class="serif">"A quiet space to pray, reflect, and grow."</em> · <em class="serif">"Your prayers never leave your phone."</em></p>
+      <p>Every ad should lean on exactly one of these four pillars:</p>
+    </div>
+
+    <div class="pillar"><div class="card">
+      <div class="label">Pillar 1 · Sacred privacy (the differentiator — lead with this)</div>
+      <p><strong>Truth behind it:</strong> journal, vault, and AI are on-device; community is anonymous; nothing is ever sold. Competitors cannot honestly say this.</p>
+      <p class="adline">"She tells this app things she's never said out loud. It can't tell anyone — the AI lives on her phone."</p>
+      <p class="adline">"Your 1am prayers are not a data point."</p>
+    </div></div>
+
+    <div class="pillar"><div class="card">
+      <div class="label">Pillar 2 · The pause (anti-scroll, anti-hustle)</div>
+      <p><strong>Truth behind it:</strong> Selah means pause; Morning Reset and Evening Wind-Down are 60-second liturgies written over your actual calendar.</p>
+      <p class="adline">"You've scrolled for 40 minutes. This takes one."</p>
+      <p class="adline">"The only app on your phone that wants less of your time."</p>
+    </div></div>
+
+    <div class="pillar"><div class="card">
+      <div class="label">Pillar 3 · Companionship without judgment</div>
+      <p><strong>Truth behind it:</strong> the Companion listens first, remembers your walk, answers with scripture — and it's private, so honesty costs nothing.</p>
+      <p class="adline">"Vent, ask, wonder, doubt. Selah listens and answers with scripture, not judgment."</p>
+      <p class="adline">"It remembered what I was praying about. And it asked me how it went."</p>
+    </div></div>
+
+    <div class="pillar"><div class="card">
+      <div class="label">Pillar 4 · Community without performance</div>
+      <p><strong>Truth behind it:</strong> anonymous prayer wall, circles with real friends, The Commons with rotating handles — belonging with zero social pressure.</p>
+      <p class="adline">"847 people are praying right now. None of them know your name."</p>
+      <p class="adline">"Post the prayer you'd never post on Instagram."</p>
+    </div></div>
+  </section>
+
+  <!-- ================= 07 CONTENT DIRECTION ================= -->
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">07</span><div>
+      <h2>Ad &amp; content direction</h2>
+    </div></div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="label">The look</div>
+        <ul class="rules">
+          <li>Golden hour and window light. Linen, wood, ceramic mugs, an open journal, hands.</li>
+          <li>Real rooms: dorm desk at 7am, car before work, bed at 11pm. Quiet solitude, not crowds.</li>
+          <li>UI always shown on device frames over cream or espresso — never floating on white.</li>
+          <li>Motion is slow and breathing — fades and gentle scale, like the app's breath circle.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="label">Never</div>
+        <ul class="rules">
+          <li>Stock worship-concert crowds, stage lights, raised-hands clichés.</li>
+          <li>Neon gradients, glassmorphism rainbows, hype-app energy.</li>
+          <li>Guilt hooks ("God noticed you skipped…") — trust is the product.</li>
+          <li>Overpromising: never "hear from God," never therapy or crisis claims.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Proven-format hooks (TikTok / Reels, 15–30s)</h3>
+    <div class="prose">
+      <p class="adline">"POV: you replaced your 7am doomscroll with 60 seconds of this." <span style="color:var(--ink-faint); font-size:13px;">(screen-record Morning Reset)</span></p>
+      <p class="adline">"An app just asked how my heart was. Not my email. My heart." <span style="color:var(--ink-faint); font-size:13px;">(check-in flow)</span></p>
+      <p class="adline">"I posted the prayer I couldn't say out loud — and 30 strangers prayed for me by morning." <span style="color:var(--ink-faint); font-size:13px;">(wall + 'someone prayed' notification)</span></p>
+      <p class="adline">"Things I journal into an app that literally cannot leak: …" <span style="color:var(--ink-faint); font-size:13px;">(privacy promise page close-up)</span></p>
+      <p class="adline">"My month with God, wrapped." <span style="color:var(--ink-faint); font-size:13px;">(Faith Wrapped share card — built-in viral loop)</span></p>
+    </div>
+
+    <h3>Organic engine</h3>
+    <div class="prose">
+      <ul class="rules">
+        <li><strong>Verse cards</strong> (the app's 3 share styles) posted daily — the SELAH watermark is the ad.</li>
+        <li><strong>Faith Wrapped</strong> screenshots at month-end — prompt users to share theirs.</li>
+        <li><strong>Founder voice:</strong> build-in-public + "why your prayers shouldn't be training data" — the privacy story earns earned media.</li>
+        <li>Hashtag base: <span class="kbd">#christiangirl</span> <span class="kbd">#faithoverfear</span> <span class="kbd">#quiettime</span> <span class="kbd">#prayerjournal</span> <span class="kbd">#bibleapp</span> <span class="kbd">#selah</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 08 APP STORE ================= -->
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">08</span><div>
+      <h2>App Store kit</h2>
+    </div></div>
+
+    <div class="table-scroll"><table>
+      <tr><th>Field</th><th>Copy</th></tr>
+      <tr><td><strong>Name</strong></td><td>Selah — Prayer &amp; Faith</td></tr>
+      <tr><td><strong>Subtitle</strong> (30 ch)</td><td>"Private prayer, at your pace" <em>(29)</em> — alt: "Pray, reflect, grow — quietly" <em>(28)</em></td></tr>
+      <tr><td><strong>Promotional text</strong></td><td>"Your prayers never leave your phone. On-device AI companion, anonymous prayer wall, and a 60-second morning liturgy written over your actual day."</td></tr>
+      <tr><td><strong>Keywords</strong></td><td>prayer,journal,bible,devotional,christian,faith,quiet time,anxiety,verse,memorize,worship,private</td></tr>
+      <tr><td><strong>Screenshot captions</strong> (in order)</td><td>1 "Faith, at your pace" · 2 "A companion that listens — on your device" · 3 "Your prayers never leave your phone" · 4 "847 praying right now. All anonymous." · 5 "Your morning, prayed over in 60 seconds" · 6 "Watch God answer — the Prayer Vault"</td></tr>
+    </table></div>
+    <p class="prose" style="color:var(--ink-soft);">Screenshot art direction: alternate cream and espresso backgrounds, device frames slightly arched-top (echo the plan cards), captions in the serif, one bronze element per frame.</p>
+  </section>
+
+  <footer>
+    <p><strong style="color:var(--ink);">Asset inventory:</strong> <span class="kbd">BrandKit/app-icon-1024.png</span> · <span class="kbd">BrandKit/wordmark-espresso.png</span> · <span class="kbd">BrandKit/wordmark-cream.png</span> · <span class="kbd">BrandKit/banner-1500x500.png</span> · <span class="kbd">BrandKit/brand-book.html</span> (this document)</p>
+    <p>Design tokens source of truth: <span class="kbd">Selah/Theme.swift</span> · Privacy policy: <a href="https://selah-legal-kohl.vercel.app">selah-legal-kohl.vercel.app</a></p>
+    <p class="serif" style="font-size:15px; color:var(--ink-soft); margin-top:26px;">Selah<span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--bronze); margin-left:5px;"></span> &nbsp;— stop, and listen.</p>
+  </footer>
+
+</div>
